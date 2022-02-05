@@ -1,0 +1,17 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: burlywood;
+    text-align: center;
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background: darkslategray;
+    color: aliceblue;
+    font-size: 32px;
+    font-weight: bold;
+}
