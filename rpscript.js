@@ -5,7 +5,7 @@ function computerPlay () {
     const choiceArray = ['Rock', 'Paper', 'Scissors'];
     const computerChoice = choiceArray[Math.floor(Math.random() * choiceArray.length)];
 
-    return computerChoice;
+    return computerChoice.toLowerCase();
 }
 
 // function to play a singleRound of RPS
