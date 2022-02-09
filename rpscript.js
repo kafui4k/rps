@@ -28,18 +28,18 @@ function playRound(playerSelection, computerSelection) {
     if (computerSelection === "paper" && playerSelection === "rock") {
         
         computerScore++;
-        computerScoreBoard.innerHTML = `Computer Score: ${computerScore}`;
+        computerScoreBoard.innerHTML = `Computer Score:\n${computerScore}`;
         scorestatus.innerHTML = `You Loose! ${computerSelection} beats ${playerSelection}`;
 
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
         computerScore++;
-        computerScoreBoard.innerHTML = `Computer Score: ${computerScore}`;
+        computerScoreBoard.innerHTML = `Computer Score:\n${computerScore}`;
 
         scorestatus.innerHTML = `You Loose! ${computerSelection} beats ${playerSelection}`;
 
     } else if (computerSelection === "rock" && playerSelection === "scissors") {
         computerScore++;
-        computerScoreBoard.innerHTML = `Computer Score: ${computerScore}`;
+        computerScoreBoard.innerHTML = `Computer Score:\n${computerScore}`;
 
         scorestatus.innerHTML = `You Loose! ${computerSelection} beats ${playerSelection}`;
 
@@ -49,7 +49,7 @@ function playRound(playerSelection, computerSelection) {
         
     } else {
         playerScore++;
-        playerScoreBoard.innerHTML = `Player Score: ${playerScore}`;
+        playerScoreBoard.innerHTML = `Player Score:\n${playerScore}`;
 
         scorestatus.innerHTML = `You win! ${playerSelection} beats ${computerSelection}`;
     }
