@@ -1,4 +1,8 @@
-
+let computerScore = 0;
+let playerScore = 0;
+const scorestatus = document.getElementById('score-status');
+const computerScoreBoard = document.getElementById('computer');
+const playerScoreBoard = document.getElementById('man');
 
 function computerPlay () {
     // this will randomly return 'Rock', 'Paper', 'Scissors'
@@ -8,52 +12,58 @@ function computerPlay () {
     return computerChoice.toLowerCase();
 }
 
-// function to play a singleRound of RPS
-// function should take in two parameters ('playerSelection', 'computerSelection')
-// function should return a string that decalres the winner - "Yoou Lose! Paper beats ROck"
-
-let computerScore = 0;
-let playerScore = 0;
+function winner(computerScore, playerScore) {
+    if (computerScore === 5) {
+        // call freeze game function
+        console.log(`COMPUTER WINS!!!`);
+    } else if (playerScore === 5) {
+        // freeze game function
+        console.log(`YOU WIN!!!`)
+    }
+}
 
 function playRound(playerSelection, computerSelection) {
-
+    
     // code goes here
     if (computerSelection === "paper" && playerSelection === "rock") {
+        
         computerScore++;
-        console.log(`You Loose! ${computerSelection} beats ${playerSelection}`);
+        computerScoreBoard.innerHTML = `Computer Score: ${computerScore}`;
+        scorestatus.innerHTML = `You Loose! ${computerSelection} beats ${playerSelection}`;
+
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
         computerScore++;
-        console.log(`You Loose! ${computerSelection} beats ${playerSelection}`);
+        computerScoreBoard.innerHTML = `Computer Score: ${computerScore}`;
+
+        scorestatus.innerHTML = `You Loose! ${computerSelection} beats ${playerSelection}`;
+
     } else if (computerSelection === "rock" && playerSelection === "scissors") {
         computerScore++;
-        console.log(`You Loose! ${computerSelection} beats ${playerSelection}`);
+        computerScoreBoard.innerHTML = `Computer Score: ${computerScore}`;
+
+        scorestatus.innerHTML = `You Loose! ${computerSelection} beats ${playerSelection}`;
+
     } else if (computerSelection === playerSelection) {
-        computerScore++;
-        playerScore++;
-        console.log(`It's a tie! ${playerSelection} matches ${computerSelection}`);
+
+        scorestatus.innerHTML = `It's a tie! ${playerSelection} matches ${computerSelection}`;
         
     } else {
         playerScore++;
-        console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+        playerScoreBoard.innerHTML = `Player Score: ${playerScore}`;
+
+        scorestatus.innerHTML = `You win! ${playerSelection} beats ${computerSelection}`;
     }
 
+    winner(computerScore, playerScore);
+
 }
 
-function game() {
-    let start = 5;
+function getButton(e) {
+    const computerSelection = computerPlay();
 
-    for (let i = 1; i <= start; i++) {
-
-        console.log(`Round ${i}`);
-
-        const computerSelection = computerPlay();
-        const playerSelection = prompt("enter your lengend to play...").toLowerCase();
-
-        console.log(playRound(playerSelection, computerSelection));
-
-    }    
-    
+    const btn = document.querySelector(`button[id="${e.srcElement.id}"]`);
+    const playerSelection = btn.id;
+    playRound(playerSelection, computerSelection)
 }
 
-game();
-
+window.addEventListener('click', getButton);
